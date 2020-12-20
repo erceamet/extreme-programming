@@ -1,0 +1,45 @@
+body {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.card-login {
+  border: 0;
+  border-radius: 1.5rem;
+  box-shadow: 0 0.1rem 0.5rem 0 rgb(63, 63, 63);
+}
+
+.card-title {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.card-body {
+  padding: 2.2rem;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-weight: 450;
+  padding: 0 0.4rem;
+}
+
+.form-group input {
+  height: auto;
+  border-radius: 2rem;
+}
+
+.btn {
+  border-radius: 4rem;
+  font-weight: bold;
+  font-size: large;
+}

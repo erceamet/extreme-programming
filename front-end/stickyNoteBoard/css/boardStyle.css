@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #9c6f3e;
+  background-image: url("../resources/cork.jpeg");
+}
+
+html,
+body,
+#container {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/*
+Site Themes
+*/
+.black {
+  background-color: #566573;
+}
+
+.light {
+  background-color: #d7ccc8;
+}

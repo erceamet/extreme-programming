@@ -1,0 +1,3 @@
+# Gets all the tickets from the
+GET http://localhost:9772/getAllTickets
+Accept: application/json

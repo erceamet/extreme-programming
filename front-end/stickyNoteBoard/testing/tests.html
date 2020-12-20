@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Test Suite</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/qunit/qunit-1.23.1.css"
+    />
+    <script src="./libs/konva.min.js"></script>
+  </head>
+
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-1.23.1.js"></script>
+    <script src="boardCode.js"></script>
+
+    <!-- Unit tests-->
+    <script>
+      // no calculations, no exceptions handled in the front-end code
+      module("Test module");
+
+      test("makeLinesConnectingStickies", function () {
+        ok(
+          makeLinesConnectingStickies,
+          "function makeLinesConnectingStickies() exists"
+        );
+      });
+    </script>
+  </body>
+</html>

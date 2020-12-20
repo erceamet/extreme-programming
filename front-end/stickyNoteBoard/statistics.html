@@ -1,0 +1,65 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistics</title>
+    <!-- <script src="./libs/gridjs.production.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/gridjs/dist/gridjs.production.min.js"></script> -->
+    <link
+      href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/statistics.css" />
+  </head>
+  <body>
+    <!-- <div class="navbar" id="navbar">
+      <a href="index.html" id="home">Home</a>
+      <a href="statistics.html" id="statistics">Statistics</a>
+      <a id="create-button" class="active" onclick="createTicket()"
+        >Create New Ticket</a
+      >
+      <a id="project-wiki">Project Wiki</a>
+      <a id="timeline">Timeline</a>
+      <a id="login" href="login.html">Log In</a>
+      <a id="logout" onclick="logout()">Logout</a> -->
+    <!-- TODO add logout function -->
+    <!-- <a id="about">About XP Visualiser</a> -->
+
+    <!-- Responsive NavBar, will show fontawesome bars to drop down when screen size is small -->
+    <!-- <a href="javascript:void(0);" class="icon" onclick="navBarResponsive()"
+        ><i class="fa fa-bars"></i
+      ></a>
+
+      <form class="dropbtn">
+        <select
+          class="dropdown"
+          value="Site Theme:"
+          onchange="siteTheme(this.options[this.selectedIndex].value);"
+        >
+          <option selected disabled>Site Theme</option>
+          <option value="0">Default</option>
+          <option value="1">Dark mode</option>
+          <option value="2">High contrast</option>
+          <option value="3">Greyscale</option>
+        </select>
+      </form>
+    </div> -->
+    <div class="container">
+      <h2 class="title">Burn Chart</h2>
+      <div class="chart" id="chart">
+        <canvas id="myChart" width="900" height="200"></canvas>
+      </div>
+      <h2 class="title">User statistics</h2>
+      <div id="table"></div>
+    </div>
+    <script src="https://unpkg.com/gridjs/dist/gridjs.development.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"
+      integrity="sha512-hZf9Qhp3rlDJBvAKvmiG+goaaKRZA6LKUO35oK6EsM0/kjPK32Yw7URqrq3Q+Nvbbt8Usss+IekL7CRn83dYmw=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./javascript/statistics.js"></script>
+    <script src="./javascript/logout.js"></script>
+  </body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <script src="./libs/konva.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="./javascript/NavBarHandler.js"></script>
+    <script src="./javascript/ShapeMaker.js"></script>
+    <script src="./javascript/LineHandler.js"></script>
+    <script src="./javascript/boardCode.js"></script>
+    <link rel="stylesheet" href="./css/boardStyle.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap"
+      rel="stylesheet"
+    />
+    <title>Ticket Board</title>
+  </head>
+
+  <body>
+    <script src="./javascript/logout.js"></script>
+    <!-- <input type = "file" id = "fileChooser"> -->
+    <div class="navbar" id="navbar">
+      <a href="index.html" id="home">Home</a>
+      <a href="statistics.html" target="_blank" id="statistics">Statistics</a>
+      <a
+        id="create-button"
+        class="active"
+        onclick="NavBarHandler.createTicket(TRAC_DIRECTORY)"
+        >Create New Ticket</a
+      >
+      <a id="project-wiki">Project Wiki</a>
+      <a id="timeline">Timeline</a>
+      <a id="login" href="login.html">Log In</a>
+      <a id="logout" onclick="logout()">Logout</a>
+      <a id="about">About XP Visualiser</a>
+
+      <!-- Responsive NavBar, will show fontawesome bars to drop down when screen size is small -->
+      <a href="javascript:void(0);" class="icon" onclick="navBarResponsive()"
+        ><i class="fa fa-bars"></i
+      ></a>
+
+      <select class="legend">
+        <option selected disabled>Theme Legend</option>
+        <option id="unresolved">Unresolved</option>
+        <option id="coded">Coded</option>
+        <option id="ct">Coded and tested</option>
+        <option id="cr">Coded and refactored</option>
+        <option id="ctr">Coded, tested and refactored</option>
+        <option id="ctri">Coded, tested, refactored and integrated</option>
+        <option id="dd">Done done</option>
+        <option id="fixed">Fixed</option>
+        <option id="wfix">Won't Fix</option>
+      </select>
+
+    <form class="dropbtn">
+        <select
+          class="dropdown"
+          value="Site Theme:"
+          onchange="siteTheme(this.options[this.selectedIndex].value);"
+        >
+          <option selected disabled>Site Theme</option>
+          <option value="0">Default</option>
+          <option value="1">Dark mode</option>
+          <option value="2">High contrast</option>
+          <option value="3">Greyscale</option>
+        </select>
+      </form>
+    </div>
+
+    <div id="container"></div>
+
+    <div id="menu">
+      <div>
+        <button id="open-ticket-in-trac-page">Open Ticket On Trac</button>
+      </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-top">
+          <span class="close">&times;</span>
+          <h3 id="modal-title" class="modal-title"></h3>
+          <hr />
+        </div>
+        <div class="modal-body">
+          <p class="modal-description-t"><b>Description:</b></p>
+          <p id="modal-description" class="modal-description"></p>
+          <hr />
+          <div id="column_issued" class="columns">
+            <p class="modal-issued-by"><b>Issued by:</b></p>
+            <p id="modal-issued-by" class="modal-issued-by"></p>
+          </div>
+          <div id="column_assigned" class="columns">
+            <p class="modal-assigned-to"><b>Assigned to:</b></p>
+            <p id="modal-assigned-to" class="modal-assigned-to"></p>
+          </div>
+        </div>
+        <div class="modal-bottom">
+          <button id="modal-button" class="modal-button">
+            Open Ticket Page
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation bar About -->
+    <div id="navAbout" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-top">
+          <span id="about-close" class="close">&times;</span>
+          <h3 id="about-title" class="modal-title"></h3>
+          <hr />
+        </div>
+        <div class="modal-body">
+          <p class="modal-description-t"><b>CE320 Group7: </b></p>
+          <p id="about-description" class="modal-description"></p>
+        </div>
+        <div class="modal-bottom">
+          <p id="about-bottom" class="modal-bottom-text"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Ticket Interface -->
+    <div id="createTix" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="create-top">
+          <span id="create-close" class="close">&times;</span>
+          <h3 id="create-title" class="modal-title"></h3>
+          <hr />
+        </div>
+        <div class="create-body">
+          <p class="create-description-t"><b>Fill Details: </b></p>
+          <p id="create-description" class="create-description"></p>
+        </div>
+        <div class="modal-bottom">
+          <p id="create-bottom" class="modal-bottom-text"></p>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

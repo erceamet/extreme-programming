@@ -1,0 +1,261 @@
+body {
+  font-family: sans-serif;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  padding-top: 180px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* overflow: auto; */
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+.modal-top {
+  padding: 6px 10px;
+}
+
+.modal-title {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.modal-body {
+  text-align: left;
+}
+
+.modal-description {
+  height: 45%;
+  overflow: auto;
+}
+
+.create-body {
+  overflow: scroll;
+  text-align: center;
+}
+
+.create-description {
+  height: 80%;
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  width: 55%;
+  height: 70%;
+  border: 2px solid rgb(174, 174, 174);
+  border-radius: 10px;
+  /* overflow: auto; */
+  box-shadow: 2px 2px 4px #5a5a5a;
+  animation-name: animateTransition;
+  animation-duration: 0.3s;
+}
+
+.close {
+  float: right;
+  font-size: 45px;
+  font-weight: bold;
+  padding-right: 10px;
+  color: #ff0033;
+}
+
+.moda-body {
+  padding: 6px 10px;
+}
+
+.modal-bottom {
+  padding: 0px 10px;
+  text-align: center;
+}
+
+.modal-button {
+  margin: 8px;
+  background-color: #444444;
+  color: white;
+  padding: 6px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgb(84, 84, 84);
+}
+
+.modal-button:hover {
+  background-color: #666666;
+}
+
+#about-bottom {
+  font-size: 13px;
+}
+
+#menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 0 5px grey;
+  border-radius: 3px;
+}
+
+#menu button {
+  width: 100%;
+  background-color: white;
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 10px;
+}
+
+#menu button:hover {
+  background-color: lightgray;
+}
+
+.columns {
+  float: left;
+  width: 50%;
+  text-align: center;
+  letter-spacing: 0.1em;
+  height: 15px;
+}
+
+.modal-top hr {
+  border: 2px solid grey;
+  border-radius: 2px;
+}
+
+.modal-body hr {
+  border: 1px solid grey;
+  border-radius: 2px;
+  width: 80%;
+}
+
+@keyframes animateTransition {
+  from {
+    top: +250px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar {
+  padding: 0 0;
+  color: white;
+  overflow: hidden;
+  display: block;
+  background-color: #323232;
+}
+
+.navbar a,
+.navbar div {
+  list-style-type: none;
+  font-size: 10px;
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.navbar a:hover,
+.navbar div:hover {
+  background-color: #393939;
+}
+
+.navbar a.active {
+  color: white;
+}
+
+.navbar .icon {
+  display: none;
+}
+
+#dropdown {
+  float: right;
+  display: block;
+}
+.navbar .right {
+  float: right;
+  display: block;
+}
+
+.legend {
+  float: right;
+  display: block;
+  colour: black;
+}
+
+.select {
+  float: right;
+  display: block;
+}
+
+/* The dropdown container */
+.dropdown, .legend {
+  border: #323232;
+  float: right;
+  padding: 10px;
+  color: white;
+  font-size: 10px;
+  background-color: #323232;
+  display: block;
+}
+
+#themedown {
+  /* position: relative; */
+  /* display: inline-block; */
+  float: left;
+  overflow: hidden;
+}
+
+#themedowncontent {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+#themedown:hover #themedowncontent {
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar a:not(:first-child) {
+    display: none;
+  }
+  .navbar a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar.responsive {
+    position: relative;
+  }
+  .navbar.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navbar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
